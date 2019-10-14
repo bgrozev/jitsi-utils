@@ -76,6 +76,14 @@ public class PropertyConfig<PropValueType>
         return this;
     }
 
+    public PropertyConfig<PropValueType> defaultTo(PropValueType defaultValue)
+    {
+        propNotFoundStrategy = new ReturnDefaultValueStrategy<>(defaultValue);
+
+        return this;
+    }
+
+
     public void validate()
     {
         if (readFrequencyStrategyCreator == null || propNotFoundStrategy == null)
